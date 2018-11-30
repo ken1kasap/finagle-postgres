@@ -22,6 +22,7 @@ if [[ "${TRAVIS_PULL_REQUEST}" == "false" ]]; then
 
         echo 'Performing a release'
         sbt 'release cross with-defaults'
+        sbt ';project finagle-postgres-shapeless; release cross with-defaults'
     elif [[ "${TRAVIS_BRANCH}" == "master" ]]; then
         echo 'Master build'
         ${SBT_CMD}
